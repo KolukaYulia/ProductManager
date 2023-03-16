@@ -15,9 +15,9 @@ public class ProductManager {
         for (Product product : repository.findAll()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
-                //for (int i = 1; i < result.length; i++) {
-                  //  tmp[i] = result[i];
-                //}
+                for (int i = 0; i < result.length; i++) {
+                    tmp[i] = result[i];
+                }
                 tmp[tmp.length - 1] = product;
                 result = tmp;
             }

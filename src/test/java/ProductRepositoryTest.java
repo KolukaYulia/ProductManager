@@ -36,4 +36,33 @@ public class ProductRepositoryTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
+    @Test
+    public void testFindById() {
+        ProductRepository repo = new ProductRepository();
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+
+
+        Product[] expected = {item2};
+        Product[] actual = new Product[]{repo.findById(2)};
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+    @Test
+    public void testFindByIdWhenNoId() {
+        ProductRepository repo = new ProductRepository();
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+
+
+        Product[] expected = {null};
+        Product[] actual = new Product[]{repo.findById(4)};
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
 }

@@ -23,6 +23,14 @@ public class ProductRepository {
         items = tmp;
 
     }
+    public Product findById(int id) {
+        for (Product product : items) {
+            if (product.id == id){
+                return product;
+            }
+        }
+        return null;
+    }
 
     public Product[] getItems() {
         return items;
