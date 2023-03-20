@@ -12,6 +12,11 @@ public class ProductRepository {
     }
 
     public void removeById(int id) {
+        Product product = findById(id);
+        if (product == null) {
+            throw new NotFoundException(id);
+        }
+
         Product[] tmp = new Product[items.length - 1];
         int copyToIndex = 0;
         for (Product item : items) {
@@ -32,9 +37,6 @@ public class ProductRepository {
         return null;
     }
 
-    public Product[] getItems() {
-        return items;
-    }
 
     public Product[] findAll() {
         return items;
